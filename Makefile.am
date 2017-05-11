@@ -193,6 +193,10 @@ doc:
 	@echo
 	@echo "Build finished. The HTML pages are in $(SPHINXBUILDDIR)/html."
 
+EXTRA_DIST += docs
+dist-hook:
+	rm -rf "$(distdir)/docs/build" "$(distdir)/docs/.gitignore"
+
 AM_DISTCHECK_CONFIGURE_FLAGS = "--without-systemdunitdir"
 
 CLEANFILES = $(gdbus_installer_generated) \
